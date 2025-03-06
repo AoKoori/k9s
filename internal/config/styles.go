@@ -331,13 +331,13 @@ func newBody() Body {
 		LogoColorWarn:  "mediumvioletred",
 		LogoColorError: "red",
 		Logo:           []string{
-			`██████╗ ██████╗  ██████╗ ██████╗ `,
-			`██╔══██╗██╔══██╗██╔═══██╗██╔══██╗`,
-			`██████╔╝██████╔╝██║   ██║██║  ██║`,
-			`██╔═══╝ ██╔══██╗██║   ██║██║  ██║`,
-			`██║     ██║  ██║╚██████╔╝██████╔╝`,
-			`╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ `,
-		}, // Initialize the logo as a slice of strings
+            ` ____  __ ________       `,
+            `|    |/  /   __   \______`,
+            `|       /\____    /  ___/`,
+            `|    \   \  /    /\___  \`,
+            `|____|\__ \/____//____  /`,
+            `         \/           \/ `,
+        },
 	}
 }
 
@@ -603,5 +603,15 @@ func (s *Styles) Dump() {
 
 // Add a method to the Styles struct to retrieve the logo
 func (s *Styles) Logo() []string {
-	return s.Body().Logo
+    logo := s.Body().Logo
+    if len(logo) == 0 {
+        return newBody().Logo
+    }
+    return logo
+}
+
+// Add a method to the Styles struct to reset the logo to the default LogoSmall
+func (s *Styles) ResetLogo() {
+
+	s.K9s.Body = newBody()
 }

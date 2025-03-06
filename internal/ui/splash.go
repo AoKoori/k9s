@@ -11,16 +11,6 @@ import (
 	"github.com/derailed/tview"
 )
 
-// LogoSmall K9s small log.
-var LogoSmall = []string{
-	` ____  __ ________       `,
-	`|    |/  /   __   \______`,
-	`|       /\____    /  ___/`,
-	`|    \   \  /    /\___  \`,
-	`|____|\__ \/____//____  /`,
-	`         \/           \/ `,
-}
-
 // LogoBig K9s big logo for splash page.
 var LogoBig = []string{
 	` ____  __ ________        _______  ____     ___ `,
@@ -59,11 +49,11 @@ func NewSplash(styles *config.Styles, version string) *Splash {
 }
 
 func (s *Splash) layoutLogo(t *tview.TextView, styles *config.Styles) {
-    logo := strings.Join(styles.Body().Logo, fmt.Sprintf("\n[%s::b]", styles.Body().LogoColor))
-    fmt.Fprintf(t, "%s[%s::b]%s\n",
-        strings.Repeat("\n", 2),
-        styles.Body().LogoColor,
-        logo)
+	logo := strings.Join(LogoBig, fmt.Sprintf("\n[%s::b]", styles.Body().LogoColor))
+	fmt.Fprintf(t, "%s[%s::b]%s\n",
+		strings.Repeat("\n", 2),
+		styles.Body().LogoColor,
+		logo)
 }
 
 func (s *Splash) layoutRev(t *tview.TextView, rev string, styles *config.Styles) {
