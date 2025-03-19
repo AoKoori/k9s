@@ -14,9 +14,9 @@ import (
 	"github.com/derailed/tview"
 )
 
+
 // LogoSmall K9s small log.
 var LogoSmall []string
-
 
 // LogoBig K9s big logo for splash page.
 var LogoBig = []string{

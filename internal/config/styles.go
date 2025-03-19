@@ -594,3 +594,18 @@ func (s *Styles) Dump() {
 	bb, _ := yaml.Marshal(s)
 	fmt.Println(string(bb))
 }
+
+// Add a method to the Styles struct to retrieve the logo
+func (s *Styles) Logo() []string {
+    logo := s.Body().Logo
+    if len(logo) == 0 {
+        return newBody().Logo
+    }
+    return logo
+}
+
+// Add a method to the Styles struct to reset the logo to the default LogoSmall
+func (s *Styles) ResetLogo() {
+
+	s.K9s.Body = newBody()
+}
